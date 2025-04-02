@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Plan de Redención en la Biblia - Iglesia Bíblica de Cristo Cuernavaca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .content { display: none; margin-top: 10px; font-size: 1.2rem; }
+        .btn-custom {
+            font-weight: bold;
+            padding: 12px;
+            background-color: #a8dadc;
+            border: none;
+            color: #1d3557;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+        .btn-custom:hover {
+            background-color: #457b9d;
+            color: white;
+        }
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .image-container img {
+		    max-width: 300px; /* Ajusta según lo necesites */
+		    height: auto;
+		    border-radius: 10px;
+		}
+
+		.btn-custom {
+		    font-weight: bold;
+		    padding: 12px;
+		    background-color: #a8dadc;
+		    border: none;
+		    color: #1d3557;
+		    border-radius: 8px;
+		    font-size: 1.5rem; /* Antes era 1.2rem */
+		}
+
+		.content {
+		    display: none;
+		    margin-top: 10px;
+		    font-size: 1.6rem; /* Antes era 1.2rem */
+		}
+    </style>
+</head>
+<body class="container mt-4">
+    <div class="image-container">
+        <img src="img-ibcc.png" alt="Imagen de referencia">
+    </div>
+    <h1 class="text-center">El Plan de Redención en la Biblia</h1>
+    <h3 class="text-center text-muted">Iglesia Bíblica de Cristo Cuernavaca</h3>
+    <div id="content-container" class="mt-3">
+        <!-- Contenido dinámico -->
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let texts = {
+						  "Génesis": "Es el mensaje de que, pese al fracaso del hombre y su caída en pecado, Dios promete un Redentor que destruirá al diablo.",
+						  "Éxodo": "Dios hace un pacto con Israel que les llevará a una tierra de reposo con la presencia de Dios con ellos.",
+						  "Levítico": "Es el mensaje de que los rituales y sacrificios de la ley son necesarios para comprender una expiación final que Dios hará en el futuro.",
+						  "Números": "Dios asegura su fidelidad a la edificación de un reino futuro pese a la rebeldía del pueblo.",
+						  "Deuteronomio": "Reitera el pacto, la promesa y la fidelidad de Dios de cumplir una salvación para su pueblo.",
+						  "Josué": "Dios prefigura a un Salvador que lleva a su pueblo a una tierra prometida donde tendrá reposo eterno.",
+						  "Jueces": "Hubo una crisis de liderazgo y de fidelidad al Señor, pero Dios reitera en cada juez que liberará a Israel y dará libertad a su pueblo para siempre.",
+						  "Ruth": "Es una época de desobediencia y caos espiritual, pero al suplir Dios las necesidades de alimento, hogar y familia de Ruth y Noemí a través de su redentor Booz, vislumbramos al Redentor celestial en quien todas las necesidades se satisfacen plenamente.",
+						  "Samuel": "Tratan sobre la venida del rey de Dios; Saúl no es ese rey, David no es un rey perfecto, pero sí una sombra del Rey final y eterno, el Mesías.",
+						  "Reyes": "Muestran la necesidad de ese rey Mesías prometido que traerá el reino de Dios y guiará al pueblo en justicia.",
+						  "Crónicas": "Comprueba que ningún hombre, ni siquiera David, puede ser el Mesías a causa de su pecado, pero reitera que Dios traerá ese rey y reino eterno.",
+						  "Esdras y Nehemías": "Demuestran que, cuando no hay posibilidades humanas de libertad para el pueblo, Dios es poderoso para salvarle de cualquier cautividad física y espiritual; ambos son sombra del gran libertador que traerá bendición al pueblo.",
+						  "Esther": "Narra que, cuando el diablo está a punto de destruir al pueblo, Dios es más poderoso para salvar a sus escogidos y así mantener su promesa.",
+						  "Job": "Manda un poderoso mensaje de que el Mesías libertador y rey que vendrá será un hombre que, como Job, sufrirá por su obediencia a Dios y Dios le salvará.",
+						  "Salmos": "Dicen que el pueblo de Dios puede y debe alegrarse y alabarle por la salvación plena que Dios traerá a Israel.",
+						  "Proverbios": "Dice que quienes valoran y abrazan la sabiduría de Dios encontrarán el tesoro de la salvación.",
+						  "Eclesiastés": "Revela la vanidad del mundo y que solo sometiéndonos a Dios seremos rescatados de ella por medio del Mesías.",
+						  "Cantares": "Celebra el amor entre un hombre y una mujer como sombra del amor puro y eterno cuando el Mesías rescate a su pueblo.",
+						  "Isaías": "Proclama la buena nueva de que Dios traerá su reino, renovará la creación y restaurará a su pueblo mediante un Mesías sufriente por quien perdonará sus pecados.",
+						  "Jeremías": "Dice que, por su rebeldía, Israel debe ser esclavizado, pero reitera el pacto de un libertador que lo salvará eternamente.",
+						  "Lamentaciones": "Recuerda la desolación del pecado, pero reitera que hay esperanza en Dios, cuya misericordia se renueva cada mañana.",
+						  "Ezequiel": "Reitera que hay un juicio divino contra todo pecado, que el alma que pecare, esa morirá, pero que sigue habiendo en Dios disposición a perdonar y salvar si ellos se arrepienten.",
+						  "Daniel": "Lanza el mensaje de que, aunque gobernantes paganos estén en el trono terrenal, Dios soberano gobierna sobre ellos y, un día, el Mesías vendrá y el reino eterno será dado a los santos.",
+						  "Oseas": "Dice que Dios está listo para perdonar y restaurar a quienes se vuelven a él.",
+						  "Joel, Amós y Abdías": "Hablan del día del Señor como un día de juicio para el pecador, pero también como un día de salvación para el que se arrepiente.",
+						  "Jonás, Miqueas y Nahum": "Exponen el pecado, la vergüenza y la necesidad de perdón en todos los hombres, y la disposición de Dios de salvar aun a aquellos que no son parte de Israel.",
+						  "Habacuc": "Complementa diciendo que esa misericordia está en la promesa de un redentor.",
+						  "Sofonías": "Apunta al día en que el Mesías pondrá fin a la corrupción y maldad cuando el día del Señor llegue.",
+						  "Hageo, Zacarías y Malaquías": "Levantan la voz para denunciar que Israel ha abandonado a Dios, pero Dios no ha abandonado a Israel y cumplirá final y definitivamente sus promesas cuando su liberación llegue a todo el mundo.",
+						  "Mateo": "Retoma la trama del AT y muestra que en Jesús se cumplen las promesas del Mesías Salvador.",
+						  "Marcos": "Presenta a Jesús como el Mesías Salvador que inaugura el reino de Dios.",
+						  "Lucas": "Dice que Jesús es el rey mesiánico, el hijo de David que cumple las promesas de Dios y en quien toda carne verá su salvación.",
+						  "Juan": "Dice que Jesús es el Hijo eterno de Dios en quien se cumplen las esperanzas y promesas de salvación del AT.",
+						  "Hechos": "Da testimonio de que solo hay salvación en Jesús para todo hombre en todo lugar.",
+						  "Romanos": "Explica la importancia y necesidad de creer en Jesús para ser salvo y señala que este es el poder de Dios revelado en el evangelio.",
+						  "Corintios": "Envía el mensaje de que el Salvador sostiene a su iglesia porque está unida a él por medio del evangelio de la cruz.",
+						  "Gálatas": "Recuerda que, para ser heredero de las promesas de Abraham, es necesario poner la fe en Jesús y su salvación en la cruz, pues ahí anuló la condenación del pecado.",
+						  "Efesios": "Dice que el evangelio salva a todo hombre que lo cree, integrándolo a la iglesia del Señor Jesucristo y dándole poder para vivir en esa victoria.",
+						  "Filipenses": "Dice que los cristianos redimidos deben seguir firmes y adelante en su confesión, unidos siguiendo los pasos de sufrimiento del Salvador.",
+						  "Colosenses": "Habla de la distintiva manera de vivir de quienes hemos sido salvados.",
+						  "Tesalonicenses": "Da testimonio de la transformadora obra en los corazones de quienes han recibido el evangelio y han sido salvados por la fe en Jesucristo.",
+						  "Timoteo y Tito": "Resumen hermosamente el mensaje del evangelio: 'Cristo Jesús vino al mundo para salvar a los pecadores' y dice que este es el modelo de sana doctrina y la motivación para la piedad.",
+						  "Filemón": "Presenta un hermoso ejemplo de quien ha sido salvado y perdonado de sus pecados y ahora puede perdonar para gloria de Cristo.",
+						  "Hebreos": "Aclara la superioridad de Jesús sobre cualquier ángel o sacerdote del AT; solo Cristo es el sacrificio expiatorio completo y final.",
+						  "Santiago": "Anima a recordar que quienes hemos sido salvados debemos perseverar en las pruebas con la fe en Jesucristo como nuestro Salvador.",
+						  "Pedro": "Llama a los cristianos a recordar que el Salvador sufrió y padeció hasta la cruz y ahora los que hemos sido salvados por el evangelio padeceremos en su nombre.",
+						  "Judas": "Exhorta a la iglesia a vivir como santos liberados del pecado por la fe en Jesucristo y vivir para él en este mundo.",
+						  "Juan (epístolas)": "Amorosamente advierte a la iglesia que hay falsas enseñanzas sobre el evangelio de salvación en Cristo, pero los cristianos hemos sido salvados y liberados y podemos discernir a los falsos maestros.",
+						  "Apocalipsis": "Demuestra que Jesucristo regresará para cumplir todas las promesas de juicio para los pecadores y salvación plena de los creyentes, llevándonos a un reino glorioso y a vivir con él para siempre."
+						};
+
+            $.each(texts, function(title, content) {
+                let button = $('<button class="btn btn-custom w-100 mt-2">' + title + '</button>');
+                let textDiv = $('<div class="content p-2 border rounded">' + content + '</div>');
+                
+                button.click(function() {
+                    textDiv.slideToggle();
+                });
+                
+                $('#content-container').append(button).append(textDiv);
+            });
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
